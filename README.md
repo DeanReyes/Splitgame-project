@@ -1,127 +1,131 @@
-Una aplicación web full-stack para decidir de manera aleatoria quién paga la cuenta en reuniones con amigos. Construida con arquitectura hexagonal en el backend y componentes standalone en Angular 17.
-📋 Tabla de Contenidos
+# 🎲 Splitgame Project
 
-Características
-Tecnologías
-Arquitectura
-Prerequisitos
-Instalación
-Configuración
-Ejecución
-API Endpoints
-Estructura del Proyecto
-Capturas de Pantalla
-Contribuir
-Licencia
+Una **aplicación web full-stack** para decidir de manera aleatoria quién paga la cuenta en reuniones con amigos.  
+Desarrollada con **arquitectura hexagonal** en el backend y **componentes standalone de Angular 17** en el frontend.
 
-✨ Características
+---
 
-🎲 Selección Aleatoria: Elige al azar quién paga entre los participantes
-👥 Gestión de Personas: Crea, lista y elimina participantes
-📊 Historial de Juegos: Registro de todos los juegos realizados
-🎨 Interfaz Moderna: UI responsive y atractiva
-🔄 Tiempo Real: Actualización automática de listas
-✅ Validaciones: Validación robusta en frontend y backend
-🏗️ Arquitectura Limpia: Separación de responsabilidades (Hexagonal Architecture)
+## 📚 Tabla de Contenidos
 
-🛠 Tecnologías
-Backend
+- [✨ Características](#-características)
+- [🛠 Tecnologías](#-tecnologías)
+- [📦 Prerrequisitos](#-prerrequisitos)
+- [🚀 Instalación](#-instalación)
+- [⚙️ Configuración](#️-configuración)
+- [🎮 Ejecución](#-ejecución)
+- [📡 API Endpoints](#-api-endpoints)
+- [📂 Estructura del Proyecto](#-estructura-del-proyecto)
+- [🖼️ Capturas de Pantalla](#️-capturas-de-pantalla)
+- [🤝 Contribuir](#-contribuir)
+- [📄 Licencia](#-licencia)
 
-Java 17
-Spring Boot 3.2
-Spring Data JPA
-PostgreSQL
-Lombok
-Maven
+---
 
-Frontend
+## ✨ Características
 
-Angular 17 (Standalone Components)
-TypeScript
-RxJS
-CSS3
+- 🎲 **Selección Aleatoria:** Elige al azar quién paga entre los participantes.  
+- 👥 **Gestión de Personas:** Crea, lista y elimina jugadores.  
+- 📊 **Historial de Juegos:** Registro de todas las partidas realizadas.  
+- 🎨 **Interfaz Moderna:** Diseño responsive y atractivo.  
+- 🔄 **Actualización en Tiempo Real:** Refrescado automático de listas.  
+- ✅ **Validaciones Completas:** En frontend y backend.  
+- 🧱 **Arquitectura Limpia:** Basada en principios de la *Hexagonal Architecture*.  
 
-Base de Datos
+---
 
-PostgreSQL 15+
+## 🛠 Tecnologías
 
-📦 Prerequisitos
+### Backend
+- Java 17  
+- Spring Boot 3.2  
+- Spring Data JPA  
+- PostgreSQL  
+- Lombok  
+- Maven  
+
+### Frontend
+- Angular 17 (Standalone Components)  
+- TypeScript  
+- RxJS  
+- CSS3  
+
+### Base de Datos
+- PostgreSQL 15+  
+
+---
+
+## 📦 Prerrequisitos
+
 Antes de comenzar, asegúrate de tener instalado:
 
-Java 17 o superior - Descargar
-Node.js 18+ y npm - Descargar
-PostgreSQL 15+ - Descargar
-Maven 3.8+ - Descargar
-Angular CLI - npm install -g @angular/cli
-Git - Descargar
+| Herramienta | Versión mínima | Enlace |
+|--------------|----------------|--------|
+| Java | 17+ | [Descargar](https://adoptium.net) |
+| Node.js | 18+ | [Descargar](https://nodejs.org) |
+| PostgreSQL | 15+ | [Descargar](https://www.postgresql.org/download/) |
+| Maven | 3.8+ | [Descargar](https://maven.apache.org/download.cgi) |
+| Angular CLI | — | `npm install -g @angular/cli` |
+| Git | — | [Descargar](https://git-scm.com/downloads) |
 
-🚀 Instalación
+---
 
-1. Clonar el repositorio
-   git clone https://github.com/tu-usuario/splitgame.git
-   cd splitgame
+## 🚀 Instalación
 
-2. Configurar Base de Datos
-   -- Conectarse a PostgreSQL
-   psql -U postgres
+1️⃣ **Clonar el repositorio**
+git clone https://github.com/DeanReyes/Splitgame-project.git
+cd Splitgame-project
 
-   -- Crear la base de datos
-   CREATE DATABASE splitgame;
+2️⃣ **Configurar la Base de Datos**
+-- Conectarse a PostgreSQL
+psql -U postgres
 
-  -- Ejecutar el script de creación de tablas
-  \c splitgame
-  \i database/schema.sql
+-- Crear la base de datos
+CREATE DATABASE splitgame;
 
-3. Configurar Backend
-   cd splitgame-backend
+-- Ejecutar script de tablas
+\c splitgame
+\i database/schema.sql
 
-  # Editar application.properties
-  # Actualiza las credenciales de PostgreSQL
-  nano src/main/resources/application.properties
+3️⃣ **Configurar Backend**
+cd splitgame-backend
 
-Configura:
-spring.datasource.url=jdbc:postgresql://localhost:5432/splitgame
-spring.datasource.username=tu_usuario
-spring.datasource.password=tu_password
-
-# Instalar dependencias
-mvn clean install
-
-cd ../splitgame-frontend
-
-4. Configurar Frontend
-# Instalar dependencias
-npm install
-
-⚙️ Configuración
-Variables de Entorno - Backend
-Edita src/main/resources/application.properties:
-# Base de datos
+Editar src/main/resources/application.properties:
 spring.datasource.url=jdbc:postgresql://localhost:5432/splitgame
 spring.datasource.username=postgres
 spring.datasource.password=your_password
 
-# Puerto del servidor
-server.port=8080
+Instalar dependencias
+mvn clean install
 
-# JPA
+4️⃣ **Configurar Frontend**
+cd ../splitgame-frontend
+npm install
+
+⚙️ **Configuración**
+Backend
+
+Archivo: src/main/resources/application.properties
+
+spring.datasource.url=jdbc:postgresql://localhost:5432/splitgame
+spring.datasource.username=postgres
+spring.datasource.password=your_password
+
+server.port=8080
 spring.jpa.hibernate.ddl-auto=validate
 spring.jpa.show-sql=true
 
-Variables de Entorno - Frontend
-Edita src/environments/environment.ts:
+Frontend
+
+Archivo: src/environments/environment.ts
+
 export const environment = {
   production: false,
   apiUrl: 'http://localhost:8080/api'
 };
 
-🎮 Ejecución
-Iniciar Backend
+🎮 **Ejecución**
 cd splitgame-backend
 mvn spring-boot:run
-El backend estará disponible en: http://localhost:8080
 
-Iniciar Frontend
 cd splitgame-frontend
 ng serve
-El frontend estará disponible en: http://localhost:4200
