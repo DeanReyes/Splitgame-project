@@ -1,0 +1,28 @@
+<div class="persona-list-container">
+  <h2>Lista de Personas</h2>
+
+  <!-- Loading -->
+  <div *ngIf="loading" class="loading">
+    Cargando...
+  </div>
+
+  <!-- Error -->
+  <div *ngIf="error" class="error">
+    {{ error }}
+  </div>
+
+  <!-- Lista -->
+  <div *ngIf="!loading && !error" class="personas-grid">
+    <div *ngFor="let persona of personas" class="persona-card">
+      <h3>{{ persona.nombre }}</h3>
+      <p class="fecha">Creado: {{ persona.fechaCreacion | date:'short' }}</p>
+      <button (click)="eliminarPersona(persona.id)" class="btn-eliminar">
+        Eliminar
+      </button>
+    </div>
+
+    <div *ngIf="personas.length === 0" class="empty-state">
+      No hay personas registradas
+    </div>
+  </div>
+</div>

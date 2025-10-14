@@ -1,0 +1,56 @@
+<div class="juego-form-container">
+  <h2>🎲 ¿Quién Paga la Cuenta?</h2>
+
+  <!-- Resultado -->
+  <div *ngIf="resultado" class="resultado-container">
+    <h3 class="ganador">🎉 {{ getNombreGanador() }} pagará la cuenta! 🎉</h3>
+    <p>Participantes: {{ resultado.totalParticipantes }}</p>
+    <button (click)="resetear()" class="btn-secondary">Jugar de Nuevo</button>
+  </div>
+
+  <!-- Formulario -->
+  <div *ngIf="!resultado">
+    <p class="instruccion">Selecciona los participantes (mínimo 2):</p>
+
+    <!-- Error -->
+    <div *ngIf="error" class="error">
+      {{ error }}
+    </div>
+
+    <!-- Lista de personas -->
+    <div class="personas-selection">
+      <div 
+        *ngFor="let persona of personas" 
+        class="persona-checkbox"
+        [class.selected]="isSeleccionada(persona.id)"
+        (click)="togglePersona(persona.id)"
+      >
+        <input 
+          type="checkbox"
+          [checked]="isSeleccionada(persona.id)"
+          [id]="'persona-' + persona.id"
+        />
+        <label [for]="'persona-' + persona.id">
+          {{ persona.nombre }}
+        </label>
+      </div>
+
+      <div *ngIf="personas.length === 0" class="empty-state">
+        No hay personas. Agrega algunas primero.
+      </div>
+    </div>
+
+    <!-- Botón jugar -->
+    <button 
+      (click)="jugar()"
+      class="btn-primary btn-jugar"
+      [disabled]="loading || personasSeleccionadas.length < 2"
+    >
+      {{ loading ? 'Jugando...' : '🎲 Jugar' }}
+    </button>
+
+    <p class="seleccionadas-count">
+      Seleccionadas: {{ personasSeleccionadas.length }}
+    </p>
+  </div>
+</div>

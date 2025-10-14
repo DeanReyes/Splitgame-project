@@ -1,0 +1,19 @@
+<div class="home-container">
+  <header class="app-header">
+    <h1>💰 SplitGame - ¿Quién Paga?</h1>
+    <p>Deja que la suerte decida quién paga la cuenta</p>
+  </header>
+
+  <div class="content-grid">
+    <!-- Columna izquierda: Gestión de personas -->
+    <div class="left-column">
+      <app-persona-form (personaCreada)="onPersonaCreada()"></app-persona-form>
+      <app-persona-list></app-persona-list>
+    </div>
+
+    <!-- Columna derecha: Juego -->
+    <div class="right-column">
+      <app-juego-form (juegoRegistrado)="onJuegoRegistrado()"></app-juego-form>
+    </div>
+  </div>
+</div>

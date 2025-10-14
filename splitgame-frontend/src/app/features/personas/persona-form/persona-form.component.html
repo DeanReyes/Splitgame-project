@@ -1,0 +1,29 @@
+<div class="persona-form-container">
+  <h3>Agregar Nueva Persona</h3>
+
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <input
+        type="text"
+        [(ngModel)]="nombre"
+        name="nombre"
+        placeholder="Nombre de la persona"
+        class="form-input"
+        [disabled]="loading"
+        maxlength="100"
+      />
+    </div>
+
+    <div *ngIf="error" class="error">
+      {{ error }}
+    </div>
+
+    <button 
+      type="submit" 
+      class="btn-primary"
+      [disabled]="loading || !nombre.trim()"
+    >
+      {{ loading ? 'Guardando...' : 'Agregar Persona' }}
+    </button>
+  </form>
+</div>
